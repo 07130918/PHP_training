@@ -15,15 +15,18 @@
       $name = 'sato kota';
       echo $name;
       echo '<br/>';
+
       // int
       $result = 10 * 5 + 4 - 2 / 2;
       echo $result;
       echo '<br/>';
       echo $result + (10 % 3);
       echo '<br/>';
+
       // float
       echo 10.0 / 3.0;
       echo '<br/>';
+
       // bool
       echo TRUE || FALSE;
       echo TRUE or FALSE;
@@ -31,6 +34,18 @@
       // falseは出力されない
       echo TRUE && FALSE;
       echo TRUE and FALSE;
+
+      // null
+      $x = NULL;
+
+      // キャスト演算
+      var_dump(1);
+      echo '<br/>';
+      $x = (string) 10;
+      var_dump($x);
+      echo '<br/>';
+      $x = (int) '10';
+      var_dump($x);
     ?>
 </h3>
 </body>
