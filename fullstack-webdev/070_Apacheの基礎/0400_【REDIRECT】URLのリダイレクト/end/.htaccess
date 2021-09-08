@@ -1,0 +1,19 @@
+# [Redirect] リダイレクト
+# 異なるURLへ転送する。（ブラウザのURL表示も変更される。）
+#
+# コンテキスト:	サーバ設定ファイル, バーチャルホスト, ディレクトリ, .htaccess
+# 
+# Redirect [status] URL-path URL
+# 
+# status:
+# 301 永続的なリダイレクトの設定に使用
+# 302 一時的に引っ越したことを表す（デフォルト）
+# 
+# - ブラウザの挙動
+# Header のレスポンスヘッダが300番台の場合
+# Locationに指定されたURLへリダイレクト
+Redirect /apache/redirect-test /apache
+Redirect /apache/redirect-test https://google.com
+
+# Redirectループに注意
+Redirect /apache/dir-test /apache/dir-test/sub1

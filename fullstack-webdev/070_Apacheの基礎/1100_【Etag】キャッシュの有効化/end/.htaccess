@@ -1,0 +1,12 @@
+# [FileETag]を使ったキャッシュの設定
+# コンテキスト:	サーバ設定ファイル, バーチャルホスト, ディレクトリ, .htaccess
+
+# INode、更新日時、ファイルサイズを使用
+FileETag All
+FileETag INode MTime Size
+
+# ETagなし
+FileETag None
+
+# 更新日時、ファイルサイズのみ使用
+FileETag MTime Size

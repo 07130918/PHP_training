@@ -1,0 +1,4 @@
+RewriteBase /apache/rewrite-test/
+RewriteRule rewrite-test/index.html - [F]
+RewriteRule rewrite-test/imgs/150.jpg imgs/150.png
+RewriteRule rewrite-test/sub1/ sub2/

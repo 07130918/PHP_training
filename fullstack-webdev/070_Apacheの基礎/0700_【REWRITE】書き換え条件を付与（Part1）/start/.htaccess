@@ -1,0 +1,12 @@
+# [RewriteCond] リライトの条件
+# RewriteCond TestString CondPatter
+# 
+# - TestString
+# テスト文字列。%{HTTP_HOST}などのシステム変数を検査する。
+# %{HTTP_HOST}: localhost:8888
+# %{QUERY_STRING} ?var=1
+# その他（https://httpd.apache.org/docs/2.2/ja/mod/mod_rewrite.html#RewriteCond）
+# 
+# - CondPatter
+# 正規表現で検査対象の文字列がマッチするかを検査する。
+# ()を使うと、後方参照として%1~%9までの値を取得できる。

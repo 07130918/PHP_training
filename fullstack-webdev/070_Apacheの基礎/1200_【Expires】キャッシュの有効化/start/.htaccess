@@ -1,0 +1,16 @@
+# Expiresを使ったキャッシュの設定
+
+# [ExpiresActive]
+# サーバ設定ファイル, バーチャルホスト, ディレクトリ, .htaccess
+
+# [ExpiresDefault]
+# サーバ設定ファイル, バーチャルホスト, ディレクトリ, .htaccess
+
+# キャッシュ期間の指定方法
+# 年:year(s)	
+# 月:month(s)
+# 週:week(s)	
+# 日:day(s)
+# 時:hour(s)
+# 分:minute(s)
+# 秒:second(s)

@@ -1,0 +1,10 @@
+h1 {
+  color: red;
+  background-color: yellow;
+}
+
+@media screen and (min-width: 600px) {
+  h1 {
+    color: blue;
+  }
+}

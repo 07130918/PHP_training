@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# hostsに以下設定
+127.0.0.1 dev.local
+127.0.0.1 www.dev.local
+127.0.0.1 vhost.dev.local
+
+# Windowsの場合
+# C:\Windows\System32\drivers\etc\hosts
+# Mac, Linuxの場合
+# /private/etc/hosts
+
+# wwwを削除
+
+# rewrite-test/vhostディレクトリをvhost.dev.localとする。

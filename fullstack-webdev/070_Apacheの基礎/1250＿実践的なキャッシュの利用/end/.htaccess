@@ -1,0 +1,6 @@
+<IfModule mod_expires.c>
+  ExpiresActive On
+  <FilesMatch "\.(png|jpe?g|gif|css|js)$">
+    ExpiresDefault "access plus 6 months"
+  </FilesMatch>
+</IfModule>

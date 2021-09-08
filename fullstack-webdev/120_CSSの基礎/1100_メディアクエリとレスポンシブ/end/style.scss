@@ -1,0 +1,8 @@
+
+// モバイルのスタイルの読み込み(Sassの記法)
+@import 'mobile.scss';
+
+@media screen and (min-width: 600px) {
+    // デスクトップのスタイルの読み込み(Sassの記法)
+    @import 'desktop.scss';
+}

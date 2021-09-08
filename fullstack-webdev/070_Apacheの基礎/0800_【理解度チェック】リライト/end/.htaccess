@@ -1,0 +1,24 @@
+# 理解度チェック
+# 問１：
+# .htmlで来たリクエストを同じファイル名のphpに転送してください。
+# 
+# 例）
+# http://localhost:8888/apache/rewrite-test/file1.html
+# -> http://localhost:8888/apache/rewrite-test/file1.php
+RewriteEngine On
+RewriteRule /?rewrite-test/(.+)\.html$ $1.php
+
+# 問２：
+# rewrite-test/sub1内のファイルに対してリクエストを送
+# 信した際に同じファイル名でsub2内に存在するファイルは
+# sub2のものを表示してください。存在しなければ、sub1
+# 内のファイルを表示してください。
+# 例）
+# http://localhost:8888/apache/rewrite-test/sub1/file1.html
+# -> http://localhost:8888/apache/rewrite-test/sub2/file1.html
+# 
+# http://localhost:8888/apache/rewrite-test/sub1/file2.html
+# -> Internal Redirect は行わない。
+RewriteCond C:/MAMP/htdocs/fullstack-webdev/070_Apacheの基礎/rewrite-test/sub2/$1 -f [OR]
+RewriteCond C:/MAMP/htdocs/fullstack-webdev/070_Apacheの基礎/rewrite-test/sub2/$1 -d
+RewriteRule /?rewrite-test/sub1/(.*) sub2/$1

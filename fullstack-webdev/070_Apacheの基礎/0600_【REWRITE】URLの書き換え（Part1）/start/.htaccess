@@ -1,0 +1,45 @@
+# [RewriteRule] リライト
+# 用途：URLの書き換え
+# 
+# コンテキスト：　サーバー設定, バーチャルホスト, ディレクトリ, .htaccess
+# 
+# ** 使用上の注意 **
+# RewriteEngine OnをRewriteRuleの前に呼び出し。
+# Options FollowSymLinks がディレクトリで記述されている必要あり。
+# 
+# RewriteRule Pattern Substitution [flags]
+# Pattern:
+# Pathにマッチする条件を正規表現で表現
+#
+# Substitution:
+# マッチした場合の書き換え後のパス、またはURL
+# Substitution は以下の３パターンで設定可能
+# 
+# URL-path:
+# ドメイン以下のパスによる指定
+# （一番最初のパスがルートディレクトリに存在しない場合にURL-pathとして認識する。）
+# 
+# file-system path:
+# PC上のディレクトリ、またはファイルへの絶対パス
+# 
+# Absolute URL:
+# http~の絶対URL
+# 
+# - (dash) 書き換えしない（フラグのみ使用）
+# フラグのみ使用する際に使用
+# 
+# Flags:
+# [R=code] リダイレクト。R=301とすると301リダイレクトを行う。
+# [L] 処理を終了。以降のRewriteRuleは実行しない。
+# [F] 403エラー（閲覧禁止）を発生させて、ページを表示しない。
+
+
+# リライトエンジンをONに設定
+RewriteEngine On
+
+# Windowsの場合（例）
+# RewriteRule /fdev-rewrite C:/ファイル/への/パス/ [L,R=301]
+# 
+# Unix系 (Mac, Linux)
+# RewriteRule /fdev-rewrite /ファイル/への/パス/ [L,R=301]
+
