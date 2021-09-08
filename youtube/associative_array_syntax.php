@@ -30,6 +30,8 @@
         // phpに配列の概念はなく全て連想配列,ただしkeyがint型の連番の場合省略可能
         $names = ['佐藤', '久保木'];
         $names[] = '小久保';
+        var_dump($names);
+        echo '<br/>';
         array_push($names, '大木', '野原');
         var_dump($names);
         echo '<br/>';
