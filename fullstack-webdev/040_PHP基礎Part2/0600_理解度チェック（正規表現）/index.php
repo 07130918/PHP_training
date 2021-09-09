@@ -21,27 +21,36 @@
 
 /**
  * 郵便番号
- * 
+ *
  * 001-0012 -> OK
  * 001-001 -> NG
  * 2.2-3042 -> NG
  * wd3-2132 -> NG
  * 124-56789 -> NG
  */
+$char = '001-0012';
+if (preg_match("/^\d{3}-\d{4}$/", $char, $result)) {
+    echo '成功';
+    print_r($result);
+} else {
+    echo '失敗';
+}
 
-
+echo '<br/>';
 /**
  * Email
  * . _ - と半角英数字が可能
- * 
+ *
  * example000@gmail.com -> OK
  * example-0.00@gmail.com -> OK
  * example-0.00@ex.co.jp -> OK
  * example/0.00@ex.co.jp -> NG
  */
-
-
-/**
- * HTML
- * 見出しタグ(h1~h6)の中身のみ取得してみよう。
- */
+$char = 'example/0.00@ex.co.jp';
+$char = 'example000@gmail.com';
+if (preg_match("/^[\w.\-]+@[\w\-]+\.[\w.\-]+$/", $char, $result)) {
+    echo '成功';
+    print_r($result[count($result) - 1]);
+} else {
+    echo '失敗';
+}
