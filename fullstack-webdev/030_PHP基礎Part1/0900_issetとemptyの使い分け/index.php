@@ -1,8 +1,8 @@
-<?php 
+<?php
 /*
  - isset
  変数が定義されていて、null以外の値の時にtrueを返す。
- 
+
  - empty
  issetがfalse、または値がfalsyな時にtrueを返す。
 
@@ -17,11 +17,14 @@
 
 $a = "0";
 $b = 1;
+$c = null;
 
-// var_dump($a == false);
+var_dump($a == false);
 
-if(!isset($a) || $a == false) {
+if(isset($a)) {
     echo 'true';
 } else {
     echo 'false';
 }
+
+var_dump(empty($a));
