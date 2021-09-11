@@ -1,3 +1,4 @@
+<!-- actionにはパラメータ送信先のurlが入る -->
 <form action="get.php">
     <input type="text" name="username">
     <input type="password" name="pwd">

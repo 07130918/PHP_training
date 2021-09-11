@@ -1,5 +1,5 @@
-<?php 
-// var_dump($_POST);
+<?php
+var_dump($_POST);
 
 $num = $_POST['num'];
 $price = $_POST['price'];
