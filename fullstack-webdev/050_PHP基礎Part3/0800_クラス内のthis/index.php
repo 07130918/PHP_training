@@ -1,12 +1,11 @@
 <?php
 /**
- * クラス継承
+ * クラス内のthis
  */
 class Person
 {
     private $name;
     public $age;
-    public const WHERE = 'Earth';
 
     function __construct($name, $age)
     {
@@ -19,10 +18,16 @@ class Person
         return $this;
     }
 
-    static function bye() {
-        echo 'bye';
+    function bye() {
+        echo 'bye, ' . $this->name;
+        return $this;
     }
 }
 
 $bob = new Person('Bob', 18);
-$bob->hello();
+$bob->hello()->bye();
+
+echo '<br/>';
+
+$tim = new Person('Tim', 32);
+$tim->hello();

@@ -2,6 +2,8 @@
 /**
  * クラス継承
  */
+
+// abstractがつくと継承が前提になりインスタンス化できない
 abstract class Person
 {
     protected $name;
@@ -15,7 +17,7 @@ abstract class Person
         echo self::$WHERE;
         echo static::$WHERE;
     }
-
+    // finalでオーバーライド不可、abstractで継承先で実装することにする
     abstract function hello();
 
     static function bye() {
@@ -25,15 +27,13 @@ abstract class Person
 
 class Japanese extends Person {
 
-    // public static $WHERE = '日本';
+    public static $WHERE = '日本';
 
-    function __construct($name, $age)
+    function __construct($name, $age = 30)
     {
         parent::__construct($name, $age);
-        // $this->name = $name;
-        // $this->age = '30';
     }
-    
+
     function hello() {
         echo 'こんにちは、' . $this->name;
         return $this;
@@ -45,6 +45,8 @@ class Japanese extends Person {
     }
 }
 
-$taro = new Japanese('太郎', 18);
-// $taro->hello();
-// $taro->jusho();
+$taro = new Japanese('太郎');
+$taro->hello();
+echo $taro->age;
+Japanese::bye();
+$taro->jusho();

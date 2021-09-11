@@ -16,6 +16,8 @@ class Person
 
     function hello() {
         echo 'hello, ' . $this->name;
+        echo '<br/>';
+        echo $this->age;
         return $this;
     }
 
@@ -26,12 +28,12 @@ class Person
 
 class Japanese extends Person {
 
-    // public static $WHERE = '日本';
+    public static $WHERE = '日本';
 
-    function __construct($name, $age)
+    function __construct($name, $age = 30)
     {
         $this->name = $name;
-        $this->age = '30';
+        $this->age = $age;
     }
     function hello() {
         echo 'こんにちは、' . $this->name;
@@ -44,11 +46,14 @@ class Japanese extends Person {
     }
 }
 
-$taro = new Japanese('太郎', 18);
+$taro = new Japanese('太郎');
 $taro->hello();
+echo '<br/>';
 $taro->jusho();
-// echo $taro->age;
+echo '<br/>';
+echo $taro->age;
+echo '<br/>';
 // $bob->hello()->bye();
 
-// $tim = new Person('Tim', 32);
-// $tim->hello();
+$tim = new Person('Tim', 32);
+$tim->hello();

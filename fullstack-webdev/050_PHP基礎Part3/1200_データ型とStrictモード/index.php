@@ -1,7 +1,6 @@
+<!-- strictモード宣言 -->
 <?php declare(strict_types=1);
-/**
- * データ型の宣言とStrictモード
- */
+
 function add1 (int $val): int {
     return $val + 1;
 }
