@@ -4,6 +4,7 @@
  */
 class Person
 {
+    // プロパティの宣言
     private $name;
     public $age;
 
