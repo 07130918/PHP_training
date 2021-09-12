@@ -28,7 +28,7 @@ class BlogController extends Controller
         // guard
         if (is_null($blog)) {
             \Session::flash('err_msg', 'データがありません');
-            return redirect('blogs');
+            return redirect(route('blogs'));
         }
 
         return view('blog.detail', ['blog' => $blog]);
