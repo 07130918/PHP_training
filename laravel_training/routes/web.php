@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ブログ一覧画面を表示
-Route::get('/', [App\Http\Controllers\BlogController::class, 'showList'])->name('blogs');;
+Route::get('/', [App\Http\Controllers\BlogController::class, 'showList'])->name('blogs');
+
+// 特定の記事へのリンク
+Route::get('/blog/{id}', [App\Http\Controllers\BlogController::class, 'showDetail'])->name('show');

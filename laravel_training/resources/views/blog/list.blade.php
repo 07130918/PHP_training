@@ -8,18 +8,22 @@
     <div class="col-md-8 col-md-offset-2">
         <h2>ブログ記事一覧</h2>
         <table class="table table-striped">
+            @if (session('err_msg'))
+                <p class="text-danger">
+                    {{ session('err_msg') }}
+                </p>
+            @endif
             <tr>
                 <th>記事番号</th>
-                <th>日付</th>
                 <th>タイトル</th>
+                <th>日付</th>
                 <th></th>
             </tr>
             @foreach ($blogs as $blog)
             <tr>
                 <td>{{ $blog->id }}</td>
+                <td><a href="/blog/{{ $blog->id }}">{{ $blog->title }}</a></td>
                 <td>{{ $blog->updated_at }}</td>
-                <td>{{ $blog->title }}</td>
-                <td>{{ $blog->content }}</td>
             </tr>
             @endforeach
         </table>
