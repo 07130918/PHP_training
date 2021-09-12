@@ -6,6 +6,7 @@ class Person
 {
     private $name;
     public $age;
+    // class内で共通の値を持ちたいときに以下のどちらかを使う
     public const whereTolive = 'Earth';
     private static $like = 'movies';
 
