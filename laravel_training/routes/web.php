@@ -25,3 +25,9 @@ Route::post('/blog/store', [App\Http\Controllers\BlogController::class, 'exeStor
 
 // 特定の記事へのリンク
 Route::get('/blog/{id}', [App\Http\Controllers\BlogController::class, 'showDetail'])->name('show');
+
+// 記事の編集画面
+Route::get('/blog/edit/{id}', [App\Http\Controllers\BlogController::class, 'showEdit'])->name('edit');
+
+// 編集内容を更新
+Route::post('/blog/update', [App\Http\Controllers\BlogController::class, 'exeUpdate'])->name('update');
