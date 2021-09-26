@@ -1,7 +1,3 @@
-/**
- * ER図を元にテーブルを作成してみよう。
- * ※外部キーは次のレクチャーで作成します。
- */
 use test_db;
 
 create table products (
