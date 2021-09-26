@@ -1,4 +1,3 @@
-
 /**
  * データベースの作成
  */
@@ -23,10 +22,11 @@ CHECK: チェック制約
 PRIMARY KEY: 主キー制約
 FOREIGN KEY: 外部キー制約
 */
+-- primaryはnot null かつ uniqueみたいなもの
 -- テーブルの作成
 create table test_db.test_table (
-	id int(6) unsigned default 0 comment 'ID',
-    val varchar(20) default 'hello' comment '値' -- 最後は,で終わらないように
+	id int(6) NOT NULL unsigned default 0 comment 'ID',
+    val varchar(20) UNIQUE default 'hello' comment '値' -- 最後は,で終わらないように
 );
 
 -- テーブル定義表示
