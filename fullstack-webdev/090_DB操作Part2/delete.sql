@@ -1,10 +1,3 @@
-/*
-レコードの削除
-テーブルのレコードを削除
-
-※ 条件の指定の方法は【WHERE】条件句 で説明。
-外部キーが張られているテーブルでは子テーブルの方から削除
-*/
 -- 子テーブルの削除
 delete from test_db.mst_shops;
 
@@ -18,4 +11,3 @@ select * from test_db.mst_shops;
 
 -- テーブル定義の確認
 show create table test_db.mst_shops;
-
