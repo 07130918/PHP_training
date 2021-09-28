@@ -31,11 +31,9 @@ SELECT * from test_db.txn_stocks WHERE (shop_id = 2 or shop_id = 3) and amount >
 -- 店舗名に A が含まれる店舗のpref_idを都道府県IDというラベル取得してみよう。
 SELECT pref_id as '都道府県ID' from test_db.mst_shops WHERE name like '%A%';
 
-
 -- txn_stocks
 -- shop_id が 2 のレコードを在庫数（amount）が多い順に取得してみよう。
 SELECT * from test_db.txn_stocks WHERE shop_id = 2 order by amount desc;
-
 
 -- txn_stocks
 -- 在庫数が上から２番目に多いレコードを取得してみよう。
