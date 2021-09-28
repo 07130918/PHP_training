@@ -8,8 +8,9 @@ on テーブル１.値が一致する属性 = テーブル２.値が一致する
 SELECT ms.id, ms.name "店舗名", ms.pref_id, mp.name "都道府県"
 from test_db.mst_shops ms
 inner join test_db.mst_prefs mp
-on ms.pref_id = mp.id;
+on ms.pref_id = mp.id
+where ms.id = 1;
 
 SELECT ms.id, ms.name "店舗名", ms.pref_id, mp.name "都道府県"
 from test_db.mst_shops ms, test_db.mst_prefs mp
-WHERE ms.pref_id = mp.id;
+WHERE ms.pref_id = mp.id and ms.id = 2;
