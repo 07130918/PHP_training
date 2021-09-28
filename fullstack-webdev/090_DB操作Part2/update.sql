@@ -6,7 +6,7 @@ select * from test_db.txn_stocks where shop_id = 1 and product_id = 1;
 -- 在庫数を特定の値に変更(50)
 update test_db.txn_stocks set amount = 50 where shop_id = 1 and product_id = 1;
 
--- 在庫数から 10 引く
+-- 現在の在庫数から10引く
 update test_db.txn_stocks set amount = amount - 10 where shop_id = 1 and product_id = 1;
 
 -- 外部キーの CASCADE の確認

@@ -1,12 +1,8 @@
 /*
-外部キーの作成
-see https://dev.mysql.com/doc/refman/5.6/ja/create-table-foreign-keys.html
-
 注意）
 - 型情報は合わせる
-- インデックスの自動付与
-（すでに有効なキーが存在する場合には作成しない。
-　例：複合主キーの一番最初はインデックスが作成されない。）
+- インデックスの自動付与（すでに有効なキーが存在する場合には作成しない。
+例：複合主キーの一番最初はインデックスが作成されない。）
 
 ON DELETE: レコードが削除された際のアクション
 ON UPDATE: レコードが更新された際のアクション
@@ -24,7 +20,7 @@ alter table テーブル名
 add constraint 制約名（※削除する際に使用）
 foreign key (対象のキー名)
       references 親テーブル名(テーブルキー名)
-      on update cascade 
+      on update cascade
       on delete restrict; -- 省略可
 
 alter table shops
