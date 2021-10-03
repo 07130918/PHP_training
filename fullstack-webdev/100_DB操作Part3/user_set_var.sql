@@ -5,7 +5,8 @@
 */
 set @s_id = 2;
 
-select @s_name := name from test_db.mst_shops ms 
+-- 条件を絞りnameの値を@s_nameに格納する際の書き方
+select @s_name := name from test_db.mst_shops ms
 where ms.id = @s_id;
 
 select @s_name;
