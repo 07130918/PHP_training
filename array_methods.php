@@ -249,4 +249,93 @@ $set = join(',', array_map(function(string $key, int $value): string {
     return "{$key} = {$value}";
 }, array_keys($in1), array_values($in1)));
 var_dump("UPDATE tbl SET {$set} WHERE id = {$in2}");
+
+// 問題16 $in1 はユーザマスタから取得した2次元配列、 $in2 は都道府県マスタから取得した2次元配列です。 $in1 の各要素に都道府県名 pref_name を追加してください。
+print_question_num(16);
+$in1 = [
+    [
+        'id' => 1,
+        'name' => '山田',
+        'pref' => 27,
+    ],
+    [
+        'id' => 2,
+        'name' => '鈴木',
+        'pref' => 26,
+    ],
+    [
+        'id' => 3,
+        'name' => '佐藤',
+        'pref' => 13,
+    ],
+    [
+        'id' => 4,
+        'name' => '小林',
+        'pref' => null,
+    ],
+];
+
+$in2 = [
+    [
+        'pref_id' => 13,
+        'pref_name' => '東京',
+    ],
+    [
+        'pref_id' => 26,
+        'pref_name' => '京都',
+    ],
+    [
+        'pref_id' => 27,
+        'pref_name' => '大阪',
+    ],
+    [
+        'pref_id' => 28,
+        'pref_name' => '神戸',
+    ],
+];
+$prefs_assoc = array_column($in2, 'pref_name', 'pref_id');
+// 無名関数にスコープ外の変数を渡したいときはuseキーワード使用
+var_dump(array_map(function (array $row) use($prefs_assoc): array {
+    $row['pref_name'] = $prefs_assoc[$row['pref']] ?? null;
+    return $row;
+}, $in1));
+
+// 問題17 $in1 はユーザからPOSTされたデータの格納された連想配列です。この連想配列から、ホワイトリスト $in2 に含まれないキーを全て削除してください。
+print_question_num(17);
+$in1 = [
+    'id' => 2,
+    'xxx' => 'yyy',
+    'code' => 'S1003',
+    'name' => '鈴木',
+    'zzz' => 'www',
+];
+
+$in2 = ['id', 'code', 'name'];
+
+// array_flip: キーを値に値をキーに反転させる
+// array_intersect_key: キーが同じ要素を返す
+var_dump(array_intersect_key($in1, array_flip($in2)));
+
+// 問題18 $in1 は tbl テーブルの更新内容、$in2 は更新対象のIDです。 これらを元にプレースホルダ付の UPDATE 文と、実行用パラメータを作成してください。
+print_question_num(18);
+
+$in1 = [
+    'a' => 1,
+    'b' => 2,
+    'c' => 3,
+    'd' => 4,
+];
+
+$in2 = 99;
+
+$set = join(',', array_map(function (string $key): string {
+    return "{$key} = :{$key}";
+}, array_keys($in1)));
+var_dump("UPDATE tbl SET {$set} WHERE id = :id");
+
+$in1['id'] = $in2;
+var_dump(array_combine(array_map(function(string $key): string {
+    return ':' . $key;
+}, array_keys($in1)), array_values($in1)));
+
 ?>
