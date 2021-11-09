@@ -1,3 +1,5 @@
+-- select 取得したい属性 from テーブル名 where <condition>
+
 -- = : 一致
 select * from test_db.txn_stocks where product_id = 1;
 
