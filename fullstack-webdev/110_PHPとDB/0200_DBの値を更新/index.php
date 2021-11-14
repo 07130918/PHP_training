@@ -10,7 +10,9 @@ $dsn = "mysql:host={$host};port=8889;dbname={$dbName};";
 $conn = new PDO($dsn, $user, $pwd);
 $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$result = $conn->exec('update mst_prefs set name = "福島" where id = 5');
+// データ更新
+// exec: 影響を受けたレコード数が戻り値になる
+$result = $conn->exec('UPDATE mst_prefs SET name = "福島" WHERE id = 5');
 
 echo '<pre>';
 print_r($result);
