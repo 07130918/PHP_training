@@ -16,14 +16,13 @@ if (isset($_POST['shop_id'])) {
     try {
 
         $shop_id = $_POST['shop_id'];
-
         $db = new DataSource();
-        $result = $db->selectOne("select * from test_phpdb.mst_shops where id = :id;", [
-            ':id' => $shop_id
-        ]);
-        
+        $result = $db->selectOne(
+            "select * from test_phpdb.mst_shops where id = :id;",
+            [':id' => $shop_id]
+            );
 
-        if (!empty($result) && count($result) > 0) {
+            if (!empty($result) && count($result) > 0) {
             echo "店舗名は[{$result['name']}]です。";
         } else {
             echo "店舗が見つかりません。";
