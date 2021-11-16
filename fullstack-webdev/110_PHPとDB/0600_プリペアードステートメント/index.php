@@ -8,9 +8,8 @@
 </form>
 
 <?php
-if (isset($_POST['shop_id'])) {
+if(isset($_POST['shop_id'])) {
     try {
-
         $shop_id = $_POST['shop_id'];
 
         $user = 'test_user';
@@ -30,13 +29,13 @@ if (isset($_POST['shop_id'])) {
         ]);
         $result = $pst->fetch();
 
-        if (!empty($result) && count($result) > 0) {
-            echo "店舗名は[{$result['name']}]です。";
+        if(!empty($result) && count($result) > 0) {
+            echo "店舗名は{$result['name']}です。";
         } else {
             echo "店舗が見つかりません。";
         }
-    } catch (PDOException $e) {
+    } catch (PDOException $th) {
         echo 'エラーが発生しました。';
     }
 }
-?>
+ ?>
