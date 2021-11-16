@@ -7,6 +7,7 @@ use PDO;
 class DataSource {
 
     private $conn;
+    private $sqlResult;
 
     public function __construct($host = 'localhost', $port = '8889', $dbName = 'test_phpdb', $username = 'test_user', $password = 'pwd') {
 
@@ -18,15 +19,39 @@ class DataSource {
 
     }
 
+    // 操作系
+    public function selectOne($sql = "", $params = []) {
+        $result = $this->select($sql, $params);
+        return count($result) > 0 ? $result[0] : false;
+    }
+
     public function select($sql = "", $params = []) {
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute($params);
+        $stmt = $this->executeSql($sql, $params);
         return $stmt->fetchAll();
     }
 
-    public function selectOne($sql, $params) {
-        $result = $this->select($sql, $params);
-        return count($result) > 0 ? $result[0] : false;
+    public function execute($sql = '', $params = []) {
+        $this->executeSql($sql, $params);
+        return $this->sqlResult;
+    }
+
+    private function executeSql($sql = '', $params = []) {
+        $stmt = $this->conn->prepare($sql);
+        $this->sqlResult = $stmt->execute($params);
+        return $stmt;
+    }
+
+    // 接続系
+    public function begin() {
+        $this->conn->beginTransaction();
+    }
+
+    public function commit() {
+        $this->conn->commit();
+    }
+
+    public function rollback() {
+        $this->conn->rollback();
     }
 
 }

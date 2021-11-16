@@ -1,52 +1,51 @@
 <?php
+
 /**
  * DB操作クラスを作成（続き）
- * 
+ *
  * 例）店舗Aから店舗Cへ商品を転送する場合のトランザクション
  */
+require_once 'datasource.php';
+
+use db\DataSource;
+
 try {
 
-    $user = 'test_user';
-    $pwd = 'pwd';
-    $host = 'localhost';
-    $dbName = 'test_phpdb';
-    $dsn = "mysql:host={$host};port=8889;dbname={$dbName};";
-    $conn = new PDO($dsn, $user, $pwd);
-    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db = new DataSource();
 
-    $product_id = 2;
+    $product_id = 3;
     $from_shop_id = 1;
     $to_shop_id = 3;
     $amount = 10;
 
-    $pst = $conn->prepare('
+    $sql = '
         update txn_stocks
         set amount = amount + :amount
         where shop_id = :shop_id
         and product_id = :product_id
-    ');
+    ';
 
-    $conn->beginTransaction();
+    $db->begin();
 
-    $pst->execute([
+    $db->execute($sql, [
         ':amount' => $amount,
         ':shop_id' => $to_shop_id,
         ':product_id' => $product_id
     ]);
 
-    $pst->execute([
+    $db->execute($sql, [
         ':amount' => -1 * $amount,
         ':shop_id' => $from_shop_id,
         ':product_id' => $product_id
     ]);
 
-    $conn->commit();
+    $db->commit();
+    echo 'コミット完了<br>';
 
 } catch (PDOException $e) {
 
     echo 'エラーが発生しました。<br>';
     echo $e->getMessage();
-    $conn->rollBack();
+    $db->rollBack();
+
 }
