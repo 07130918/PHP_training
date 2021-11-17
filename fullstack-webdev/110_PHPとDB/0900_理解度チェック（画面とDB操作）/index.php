@@ -27,7 +27,7 @@
 </form>
 
 <?php
-require_once 'datasource.php';
+require_once '../datasource.php';
 
 use db\DataSource;
 

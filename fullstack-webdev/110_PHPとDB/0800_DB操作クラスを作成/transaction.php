@@ -5,7 +5,7 @@
  *
  * 例）店舗Aから店舗Cへ商品を転送する場合のトランザクション
  */
-require_once 'datasource.php';
+require_once '../datasource.php';
 
 use db\DataSource;
 

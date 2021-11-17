@@ -11,7 +11,7 @@
 
 <?php
 require_once 'product.model.php';
-require_once 'datasource.php';
+require_once '../datasource.php';
 
 use db\DataSource;
 use model\ProductModel;
